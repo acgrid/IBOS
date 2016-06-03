@@ -31,7 +31,7 @@ class Memcache extends Cache {
         $this->options = $options;
         $this->options['expire'] = isset( $options['expire'] ) ? $options['expire'] : 0;
         $func = $options['persistent'] ? 'pconnect' : 'connect';
-        $this->instance = new memcache;
+        $this->instance = new \Memcache;
         $options['timeout'] === false ?
                         $this->instance->$func( $options['host'], $options['port'] ) :
                         $this->instance->$func( $options['host'], $options['port'], $options['timeout'] );
